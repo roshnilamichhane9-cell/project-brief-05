@@ -9,6 +9,7 @@ function Login() {
         <div>
           <label>Email</label>
           <br />
+
           <input
             type="email"
             placeholder="Enter your email"
@@ -20,6 +21,7 @@ function Login() {
         <div>
           <label>Password</label>
           <br />
+
           <input
             type="password"
             placeholder="Enter your password"

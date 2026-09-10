@@ -1,8 +1,10 @@
-function AuthLayout({ children }) {
+import { Outlet } from "react-router-dom";
+
+function AuthLayout() {
   return (
     <div className="auth-layout">
       <main className="auth-content">
-        {children}
+        <Outlet />
       </main>
     </div>
   );

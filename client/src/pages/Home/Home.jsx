@@ -6,8 +6,8 @@ function Home() {
       <h2>Welcome to Inventory Management System</h2>
 
       <p>
-        This application helps businesses manage products,
-        suppliers, purchases, sales and inventory.
+        Manage products, suppliers, purchases,
+        sales and inventory in one place.
       </p>
     </div>
   );
