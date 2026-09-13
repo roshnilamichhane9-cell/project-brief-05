@@ -1,29 +1,23 @@
-function Card({
-  title,
-  description,
-  children
-}) {
+import React from "react";
+
+const Card = ({ title, value, children }) => {
   return (
     <div className="card">
 
       {title && (
-        <h2 className="card-title">
-          {title}
-        </h2>
+        <h3>{title}</h3>
       )}
 
-      {description && (
-        <p className="card-description">
-          {description}
-        </p>
+      {value !== undefined && (
+        <div className="stat-value">
+          {value}
+        </div>
       )}
 
-      <div className="card-content">
-        {children}
-      </div>
+      {children}
 
     </div>
   );
-}
+};
 
 export default Card;

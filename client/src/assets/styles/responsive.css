@@ -1,0 +1,194 @@
+/* =========================================
+   SPRINT 8 - RESPONSIVE CSS
+========================================= */
+
+
+/* =========================================
+   LARGE DESKTOP
+========================================= */
+
+@media (min-width: 1200px) {
+
+  .main-content {
+    padding: 45px 50px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 992px) {
+
+  .navbar {
+    padding: 16px 25px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+  .navbar-nav {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    gap: 5px;
+  }
+
+  .navbar-nav a {
+    padding: 8px 11px;
+  }
+
+
+  .main-content {
+    padding: 35px 25px;
+  }
+
+
+  /* 2 columns on tablet */
+
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+  }
+
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+
+    gap: 18px;
+  }
+
+
+  .page-header h1 {
+    font-size: 30px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    gap: 12px;
+  }
+
+
+  .navbar-brand a {
+    font-size: 18px;
+  }
+
+
+  .navbar-nav {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: flex-start;
+
+    gap: 4px;
+  }
+
+
+  .navbar-nav a {
+    padding: 7px 9px;
+
+    font-size: 12px;
+  }
+
+
+  .main-content {
+    padding: 25px 18px;
+  }
+
+
+  .page-header {
+    margin-bottom: 22px;
+  }
+
+
+  .page-header h1 {
+    font-size: 27px;
+  }
+
+
+  .page-header p {
+    font-size: 14px;
+  }
+
+
+  /* 1 column on mobile */
+
+  .card-grid {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+
+  .card {
+    padding: 20px;
+  }
+
+
+  .dashboard-content {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+
+  .two-column-layout {
+    flex-direction: column;
+  }
+
+
+  .footer {
+    padding: 18px;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 400px) {
+
+  .navbar-nav a {
+    padding: 6px 7px;
+
+    font-size: 11px;
+  }
+
+
+  .main-content {
+    padding: 20px 14px;
+  }
+
+
+  .page-header h1 {
+    font-size: 24px;
+  }
+
+
+  .card {
+    padding: 17px;
+  }
+}

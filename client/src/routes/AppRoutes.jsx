@@ -1,11 +1,10 @@
 import {
   BrowserRouter,
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
-import AuthLayout from "../layouts/AuthLayout";
 
 import Home from "../pages/Home/Home";
 import Dashboard from "../pages/Dashboard/Dashboard";
@@ -14,9 +13,9 @@ import Categories from "../pages/Categories/Categories";
 import Suppliers from "../pages/Suppliers/Suppliers";
 import Purchases from "../pages/Purchases/Purchases";
 import Sales from "../pages/Sales/Sales";
+
 import Login from "../pages/Login/Login";
 import NotFound from "../pages/NotFound/NotFound";
-
 
 function AppRoutes() {
   return (
@@ -24,16 +23,9 @@ function AppRoutes() {
 
       <Routes>
 
-        {/* =========================
-            MAIN APPLICATION
-        ========================== */}
-
         <Route element={<MainLayout />}>
 
-          <Route
-            path="/"
-            element={<Home />}
-          />
+          <Route path="/" element={<Home />} />
 
           <Route
             path="/dashboard"
@@ -65,26 +57,17 @@ function AppRoutes() {
             element={<Sales />}
           />
 
-          <Route
-            path="*"
-            element={<NotFound />}
-          />
-
         </Route>
 
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
-        {/* =========================
-            AUTHENTICATION
-        ========================== */}
-
-        <Route element={<AuthLayout />}>
-
-          <Route
-            path="/login"
-            element={<Login />}
-          />
-
-        </Route>
+        <Route
+          path="*"
+          element={<NotFound />}
+        />
 
       </Routes>
 

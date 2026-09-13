@@ -1,0 +1,105 @@
+/* =========================================
+   SPRINT 8 - LAYOUT CSS
+   Flexbox based page layout
+========================================= */
+
+.app {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.main-layout {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  width: 100%;
+
+  flex: 1;
+
+  padding: 40px;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  font-size: 34px;
+  font-weight: 700;
+
+  color: #111111;
+}
+
+.page-header p {
+  margin-top: 8px;
+
+  font-size: 15px;
+
+  color: #666666;
+}
+
+
+/* =========================================
+   CONTENT SECTION
+========================================= */
+
+.content-section {
+  width: 100%;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================================
+   TWO COLUMN LAYOUT
+========================================= */
+
+.two-column-layout {
+  display: flex;
+
+  gap: 24px;
+
+  width: 100%;
+}
+
+.two-column-layout > * {
+  flex: 1;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+  width: 100%;
+
+  padding: 22px 40px;
+
+  background: #ffffff;
+
+  border-top: 1px solid #dddddd;
+
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #666666;
+}
