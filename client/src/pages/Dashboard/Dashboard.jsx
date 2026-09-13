@@ -1,35 +1,39 @@
-function Dashboard() {
+import PageTitle from "../../components/ui/PageTitle";
+import Card from "../../components/ui/Card";
+import Button from "../../components/ui/Button";
+
+function Home() {
   return (
-    <div className="page">
-      <h1>Dashboard</h1>
+    <div className="page-container">
 
-      <p>
-        Welcome to the Inventory Management System Dashboard.
-      </p>
+      <PageTitle
+        title="Home"
+        subtitle="Welcome to the Inventory Management System."
+      />
 
-      <div className="dashboard-cards">
-        <div className="card">
-          <h3>Total Products</h3>
-          <p>0</p>
+      <Card
+        title="Welcome to Inventory Management System"
+        description="Manage products, suppliers, purchases, sales and inventory in one place."
+      >
+
+        <p>
+          The Inventory Management System helps businesses
+          manage their products, suppliers, purchases,
+          sales and inventory efficiently.
+        </p>
+
+        <div className="quick-actions" style={{ marginTop: "20px" }}>
+
+          <Button>
+            Get Started
+          </Button>
+
         </div>
 
-        <div className="card">
-          <h3>Total Suppliers</h3>
-          <p>0</p>
-        </div>
+      </Card>
 
-        <div className="card">
-          <h3>Total Purchases</h3>
-          <p>0</p>
-        </div>
-
-        <div className="card">
-          <h3>Total Sales</h3>
-          <p>0</p>
-        </div>
-      </div>
     </div>
   );
 }
 
-export default Dashboard;
+export default Home;

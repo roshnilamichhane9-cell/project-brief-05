@@ -3,25 +3,45 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
   return (
     <nav className="navbar">
+
       <div className="navbar-brand">
-        <h2>Inventory Management System</h2>
+        <NavLink to="/">
+          Inventory Management System
+        </NavLink>
       </div>
 
-      <div className="navbar-links">
-        <NavLink to="/">Home</NavLink>
+      <div className="navbar-nav">
+
+        <NavLink to="/">
+          Home
+        </NavLink>
 
         <NavLink to="/dashboard">
           Dashboard
         </NavLink>
 
-        <NavLink to="/profile">
-          Profile
+        <NavLink to="/products">
+          Products
         </NavLink>
 
-        <NavLink to="/login">
-          Login
+        <NavLink to="/categories">
+          Categories
         </NavLink>
+
+        <NavLink to="/suppliers">
+          Suppliers
+        </NavLink>
+
+        <NavLink to="/purchases">
+          Purchases
+        </NavLink>
+
+        <NavLink to="/sales">
+          Sales
+        </NavLink>
+
       </div>
+
     </nav>
   );
 }

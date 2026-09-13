@@ -1,8 +1,20 @@
 :root {
-  --primary-color: #2563eb;
-  --secondary-color: #1f2937;
-  --background-color: #f5f6fa;
-  --text-color: #222222;
-  --white-color: #ffffff;
-  --border-color: #dddddd;
+  --primary: #000000;
+  --primary-dark: #333333;
+
+  --success: #000000;
+  --warning: #000000;
+  --danger: #000000;
+
+  --text: #111111;
+  --text-light: #666666;
+
+  --background: #ffffff;
+  --white: #ffffff;
+
+  --border: #dddddd;
+
+  --radius: 8px;
+
+  --shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
 }

@@ -1,39 +1,52 @@
+import PageTitle from "../../components/ui/PageTitle";
+import Card from "../../components/ui/Card";
+import Button from "../../components/ui/Button";
+
 function Login() {
   return (
-    <div className="page">
-      <h1>Login</h1>
+    <div className="login-container">
 
-      <p>Login to access the Inventory Management System.</p>
+      <PageTitle
+        title="Login"
+        subtitle="Sign in to your inventory system."
+      />
 
-      <form>
-        <div>
-          <label>Email</label>
-          <br />
+      <Card>
+
+        <div className="form-group">
+
+          <label>
+            Email
+          </label>
 
           <input
             type="email"
             placeholder="Enter your email"
           />
+
         </div>
 
-        <br />
 
-        <div>
-          <label>Password</label>
-          <br />
+        <div className="form-group">
+
+          <label>
+            Password
+          </label>
 
           <input
             type="password"
             placeholder="Enter your password"
           />
+
         </div>
 
-        <br />
 
-        <button type="submit">
+        <Button type="submit">
           Login
-        </button>
-      </form>
+        </Button>
+
+      </Card>
+
     </div>
   );
 }
