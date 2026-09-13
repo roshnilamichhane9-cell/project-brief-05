@@ -13,14 +13,12 @@ import Categories from "../pages/Categories/Categories";
 import Suppliers from "../pages/Suppliers/Suppliers";
 import Purchases from "../pages/Purchases/Purchases";
 import Sales from "../pages/Sales/Sales";
-
 import Login from "../pages/Login/Login";
 import NotFound from "../pages/NotFound/NotFound";
 
 function AppRoutes() {
   return (
     <BrowserRouter>
-
       <Routes>
 
         <Route element={<MainLayout />}>
@@ -70,7 +68,6 @@ function AppRoutes() {
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 }

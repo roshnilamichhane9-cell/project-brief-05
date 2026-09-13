@@ -1,34 +1,95 @@
-import PageTitle from "../../components/ui/PageTitle";
-import Card from "../../components/ui/Card";
-import Button from "../../components/ui/Button";
-
 function Sales() {
+  const sales = [
+    {
+      id: "S-001",
+      product: "Laptop",
+      quantity: 2,
+      customer: "Customer A",
+      status: "Completed",
+    },
+    {
+      id: "S-002",
+      product: "Mouse",
+      quantity: 5,
+      customer: "Customer B",
+      status: "Completed",
+    },
+    {
+      id: "S-003",
+      product: "Monitor",
+      quantity: 1,
+      customer: "Customer C",
+      status: "Completed",
+    },
+  ];
+
   return (
-    <div className="page-container">
+    <div>
 
-      <PageTitle
-        title="Sales"
-        subtitle="Manage sales and inventory transactions."
-      />
+      <div className="page-title">
+        <h2>Sales</h2>
 
-      <Card
-        title="Sales Management"
-        description="Create and manage sales transactions."
-      >
+        <p>
+          Manage sales transactions and outgoing stock.
+        </p>
+      </div>
 
-        <div className="quick-actions">
 
-          <Button>
-            Add Sale
-          </Button>
+      <div className="section-card">
 
-          <Button variant="secondary">
-            View Sales
-          </Button>
+        <h3>Sales Transactions</h3>
+
+        <div className="table-container">
+
+          <table className="data-table">
+
+            <thead>
+              <tr>
+                <th>Sale ID</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Customer</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {sales.map((sale) => (
+                <tr key={sale.id}>
+
+                  <td>
+                    {sale.id}
+                  </td>
+
+                  <td>
+                    {sale.product}
+                  </td>
+
+                  <td>
+                    {sale.quantity}
+                  </td>
+
+                  <td>
+                    {sale.customer}
+                  </td>
+
+                  <td>
+                    <span className="status">
+                      {sale.status}
+                    </span>
+                  </td>
+
+                </tr>
+              ))}
+
+            </tbody>
+
+          </table>
 
         </div>
 
-      </Card>
+      </div>
 
     </div>
   );

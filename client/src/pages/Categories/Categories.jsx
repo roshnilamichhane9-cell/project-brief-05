@@ -1,34 +1,62 @@
-import PageTitle from "../../components/ui/PageTitle";
-import Card from "../../components/ui/Card";
-import Button from "../../components/ui/Button";
-
 function Categories() {
+  const categories = [
+    "Electronics",
+    "Accessories",
+    "Office Supplies",
+    "Furniture",
+    "Stationery",
+  ];
+
   return (
-    <div className="page-container">
+    <div>
 
-      <PageTitle
-        title="Categories"
-        subtitle="Organize products into categories."
-      />
+      <div className="page-title">
+        <h2>Categories</h2>
 
-      <Card
-        title="Category Management"
-        description="Manage product categories."
-      >
+        <p>
+          Manage product categories.
+        </p>
+      </div>
 
-        <div className="quick-actions">
 
-          <Button>
-            Add Category
-          </Button>
+      <div className="section-card">
 
-          <Button variant="secondary">
-            View Categories
-          </Button>
+        <h3>Category List</h3>
+
+        <div className="table-container">
+
+          <table className="data-table">
+
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Category Name</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {categories.map((category, index) => (
+                <tr key={category}>
+
+                  <td>
+                    {index + 1}
+                  </td>
+
+                  <td>
+                    {category}
+                  </td>
+
+                </tr>
+              ))}
+
+            </tbody>
+
+          </table>
 
         </div>
 
-      </Card>
+      </div>
 
     </div>
   );

@@ -1,112 +1,188 @@
-import { useState } from "react";
-import PageTitle from "../../components/ui/PageTitle";
-import Card from "../../components/ui/Card";
-import Button from "../../components/ui/Button";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
-
-  const [notificationCount, setNotificationCount] = useState(3);
-
-  const [showMessage, setShowMessage] = useState(false);
-
-  const [userName, setUserName] = useState("");
-
-  const handleNotification = () => {
-    setNotificationCount(notificationCount + 1);
-  };
-
-  const handleMessage = () => {
-    setShowMessage(!showMessage);
-  };
-
   return (
-    <div className="page-container">
+    <div>
 
-      <PageTitle
-        title="Dashboard"
-        description="Overview of your inventory management system."
-      />
+      <div className="page-title">
+        <h2>Dashboard</h2>
 
-      {/* Dashboard Cards */}
+        <p>
+          Overview of your inventory management system.
+        </p>
+      </div>
+
+
+      {/* Statistics */}
+
       <div className="dashboard-grid">
 
-        <Card
-          title="Products"
-          value="120"
-          description="Total products"
-        />
+        <div className="dashboard-card">
+          <h3>Total Products</h3>
 
-        <Card
-          title="Categories"
-          value="15"
-          description="Product categories"
-        />
+          <div className="dashboard-number">
+            120
+          </div>
 
-        <Card
-          title="Suppliers"
-          value="25"
-          description="Active suppliers"
-        />
+          <p>Products in inventory</p>
+        </div>
 
-        <Card
-          title="Sales"
-          value="85"
-          description="Total sales"
-        />
+
+        <div className="dashboard-card">
+          <h3>Total Categories</h3>
+
+          <div className="dashboard-number">
+            18
+          </div>
+
+          <p>Product categories</p>
+        </div>
+
+
+        <div className="dashboard-card">
+          <h3>Total Suppliers</h3>
+
+          <div className="dashboard-number">
+            24
+          </div>
+
+          <p>Registered suppliers</p>
+        </div>
+
+
+        <div className="dashboard-card">
+          <h3>Total Sales</h3>
+
+          <div className="dashboard-number">
+            58
+          </div>
+
+          <p>Sales transactions</p>
+        </div>
 
       </div>
 
-      {/* State Example */}
-      <section className="interactive-section">
 
-        <h2>Notification Counter</h2>
+      {/* Lower sections */}
 
-        <p>
-          Notifications: <strong>{notificationCount}</strong>
-        </p>
+      <div className="dashboard-sections">
 
-        <Button onClick={handleNotification}>
-          Add Notification
-        </Button>
 
-      </section>
+        {/* Recent transactions */}
 
-      {/* Button Event */}
-      <section className="interactive-section">
+        <div className="section-card">
 
-        <h2>Message Toggle</h2>
+          <h3>Recent Transactions</h3>
 
-        <Button onClick={handleMessage}>
-          {showMessage ? "Hide Message" : "Show Message"}
-        </Button>
+          <div className="table-container">
 
-        {showMessage && (
-          <p className="success-message">
-            Welcome to your Inventory Dashboard!
-          </p>
-        )}
+            <table className="data-table">
 
-      </section>
+              <thead>
+                <tr>
+                  <th>Transaction</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
 
-      {/* Input Event */}
-      <section className="interactive-section">
+              <tbody>
 
-        <h2>Enter Your Name</h2>
+                <tr>
+                  <td>Sale #1001</td>
+                  <td>Laptop</td>
+                  <td>2</td>
+                  <td>
+                    <span className="status">
+                      Completed
+                    </span>
+                  </td>
+                </tr>
 
-        <input
-          type="text"
-          placeholder="Enter your name"
-          value={userName}
-          onChange={(event) => setUserName(event.target.value)}
-        />
+                <tr>
+                  <td>Purchase #2001</td>
+                  <td>Keyboard</td>
+                  <td>20</td>
+                  <td>
+                    <span className="status">
+                      Received
+                    </span>
+                  </td>
+                </tr>
 
-        {userName && (
-          <p>
-            Hello, <strong>{userName}</strong>!
-          </p>
-        )}
+                <tr>
+                  <td>Sale #1002</td>
+                  <td>Mouse</td>
+                  <td>5</td>
+                  <td>
+                    <span className="status">
+                      Completed
+                    </span>
+                  </td>
+                </tr>
 
-      </section>
+                <tr>
+                  <td>Purchase #2002</td>
+                  <td>Monitor</td>
+                  <td>10</td>
+                  <td>
+                    <span className="status">
+                      Pending
+                    </span>
+                  </td>
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+        {/* Quick actions */}
+
+        <div className="section-card">
+
+          <h3>Quick Actions</h3>
+
+          <div className="quick-actions">
+
+            <Link
+              to="/products"
+              className="quick-action"
+            >
+              Manage Products
+            </Link>
+
+            <Link
+              to="/suppliers"
+              className="quick-action"
+            >
+              Manage Suppliers
+            </Link>
+
+            <Link
+              to="/purchases"
+              className="quick-action"
+            >
+              View Purchases
+            </Link>
+
+            <Link
+              to="/sales"
+              className="quick-action"
+            >
+              View Sales
+            </Link>
+
+          </div>
+
+        </div>
+
+      </div>
 
     </div>
   );

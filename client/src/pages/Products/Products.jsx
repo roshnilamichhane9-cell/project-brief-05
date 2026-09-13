@@ -1,34 +1,100 @@
-import PageTitle from "../../components/ui/PageTitle";
-import Card from "../../components/ui/Card";
-import Button from "../../components/ui/Button";
-
 function Products() {
+  const products = [
+    {
+      id: 1,
+      name: "Laptop",
+      category: "Electronics",
+      quantity: 25,
+      price: "₹60,000",
+    },
+    {
+      id: 2,
+      name: "Keyboard",
+      category: "Accessories",
+      quantity: 50,
+      price: "₹1,500",
+    },
+    {
+      id: 3,
+      name: "Mouse",
+      category: "Accessories",
+      quantity: 75,
+      price: "₹800",
+    },
+    {
+      id: 4,
+      name: "Monitor",
+      category: "Electronics",
+      quantity: 15,
+      price: "₹15,000",
+    },
+  ];
+
   return (
-    <div className="page-container">
+    <div>
 
-      <PageTitle
-        title="Products"
-        subtitle="Manage products in your inventory."
-      />
+      <div className="page-title">
+        <h2>Products</h2>
 
-      <Card
-        title="Product Management"
-        description="Add, view and manage inventory products."
-      >
+        <p>
+          Manage products and inventory stock.
+        </p>
+      </div>
 
-        <div className="quick-actions">
 
-          <Button>
-            Add Product
-          </Button>
+      <div className="section-card">
 
-          <Button variant="secondary">
-            View Products
-          </Button>
+        <h3>Product List</h3>
+
+        <div className="table-container">
+
+          <table className="data-table">
+
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {products.map((product) => (
+                <tr key={product.id}>
+
+                  <td>
+                    {product.id}
+                  </td>
+
+                  <td>
+                    {product.name}
+                  </td>
+
+                  <td>
+                    {product.category}
+                  </td>
+
+                  <td>
+                    {product.quantity}
+                  </td>
+
+                  <td>
+                    {product.price}
+                  </td>
+
+                </tr>
+              ))}
+
+            </tbody>
+
+          </table>
 
         </div>
 
-      </Card>
+      </div>
 
     </div>
   );

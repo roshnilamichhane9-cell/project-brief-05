@@ -1,34 +1,95 @@
-import PageTitle from "../../components/ui/PageTitle";
-import Card from "../../components/ui/Card";
-import Button from "../../components/ui/Button";
-
 function Purchases() {
+  const purchases = [
+    {
+      id: "PO-001",
+      supplier: "ABC Electronics",
+      product: "Laptop",
+      quantity: 10,
+      status: "Received",
+    },
+    {
+      id: "PO-002",
+      supplier: "Tech World",
+      product: "Keyboard",
+      quantity: 30,
+      status: "Pending",
+    },
+    {
+      id: "PO-003",
+      supplier: "Office Supplies Ltd.",
+      product: "Monitor",
+      quantity: 15,
+      status: "Received",
+    },
+  ];
+
   return (
-    <div className="page-container">
+    <div>
 
-      <PageTitle
-        title="Purchases"
-        subtitle="Manage purchase orders and transactions."
-      />
+      <div className="page-title">
+        <h2>Purchases</h2>
 
-      <Card
-        title="Purchase Management"
-        description="Create and manage purchase orders."
-      >
+        <p>
+          Manage purchase orders and incoming stock.
+        </p>
+      </div>
 
-        <div className="quick-actions">
 
-          <Button>
-            Add Purchase
-          </Button>
+      <div className="section-card">
 
-          <Button variant="secondary">
-            View Purchases
-          </Button>
+        <h3>Purchase Orders</h3>
+
+        <div className="table-container">
+
+          <table className="data-table">
+
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Supplier</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              {purchases.map((purchase) => (
+                <tr key={purchase.id}>
+
+                  <td>
+                    {purchase.id}
+                  </td>
+
+                  <td>
+                    {purchase.supplier}
+                  </td>
+
+                  <td>
+                    {purchase.product}
+                  </td>
+
+                  <td>
+                    {purchase.quantity}
+                  </td>
+
+                  <td>
+                    <span className="status">
+                      {purchase.status}
+                    </span>
+                  </td>
+
+                </tr>
+              ))}
+
+            </tbody>
+
+          </table>
 
         </div>
 
-      </Card>
+      </div>
 
     </div>
   );
