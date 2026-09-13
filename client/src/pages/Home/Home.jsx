@@ -1,36 +1,26 @@
-import PageTitle from "../../components/ui/PageTitle";
-import Card from "../../components/ui/Card";
-import Button from "../../components/ui/Button";
+import { Link } from "react-router-dom";
+import Welcome from "../../components/ui/Welcome";
 
 function Home() {
   return (
     <div className="page-container">
 
-      <PageTitle
-        title="Home"
-        subtitle="Welcome to the Inventory Management System."
+      <h1>Home</h1>
+
+      <p className="page-description">
+        Welcome to the Inventory Management System.
+      </p>
+
+      <Welcome
+        userName="Administrator"
+        projectName="Inventory Management System"
       />
 
-      <Card
-        title="Welcome to Inventory Management System"
-        description="Manage products, suppliers, purchases, sales and inventory in one place."
-      >
-
-        <p>
-          The Inventory Management System helps businesses
-          manage their products, suppliers, purchases,
-          sales and inventory efficiently.
-        </p>
-
-        <div className="quick-actions" style={{ marginTop: "20px" }}>
-
-          <Button>
-            Get Started
-          </Button>
-
-        </div>
-
-      </Card>
+      <div className="home-actions">
+        <Link to="/dashboard" className="primary-button">
+          Go to Dashboard
+        </Link>
+      </div>
 
     </div>
   );

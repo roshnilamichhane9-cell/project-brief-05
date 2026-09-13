@@ -1,20 +1,11 @@
-function PageTitle({
-  title,
-  subtitle
-}) {
+function PageTitle({ title, description }) {
   return (
-    <div className="page-title-container">
+    <div className="page-title">
+      <h1>{title}</h1>
 
-      <h1 className="page-title">
-        {title}
-      </h1>
-
-      {subtitle && (
-        <p className="page-subtitle">
-          {subtitle}
-        </p>
+      {description && (
+        <p>{description}</p>
       )}
-
     </div>
   );
 }

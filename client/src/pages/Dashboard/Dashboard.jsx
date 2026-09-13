@@ -1,234 +1,115 @@
-import React from "react";
+import { useState } from "react";
+import PageTitle from "../../components/ui/PageTitle";
+import Card from "../../components/ui/Card";
+import Button from "../../components/ui/Button";
 
-const Dashboard = () => {
+function Dashboard() {
+
+  const [notificationCount, setNotificationCount] = useState(3);
+
+  const [showMessage, setShowMessage] = useState(false);
+
+  const [userName, setUserName] = useState("");
+
+  const handleNotification = () => {
+    setNotificationCount(notificationCount + 1);
+  };
+
+  const handleMessage = () => {
+    setShowMessage(!showMessage);
+  };
+
   return (
-    <div>
+    <div className="page-container">
 
-      {/* Page Header */}
+      <PageTitle
+        title="Dashboard"
+        description="Overview of your inventory management system."
+      />
 
-      <div className="page-header">
-        <h1>Dashboard</h1>
+      {/* Dashboard Cards */}
+      <div className="dashboard-grid">
+
+        <Card
+          title="Products"
+          value="120"
+          description="Total products"
+        />
+
+        <Card
+          title="Categories"
+          value="15"
+          description="Product categories"
+        />
+
+        <Card
+          title="Suppliers"
+          value="25"
+          description="Active suppliers"
+        />
+
+        <Card
+          title="Sales"
+          value="85"
+          description="Total sales"
+        />
+
+      </div>
+
+      {/* State Example */}
+      <section className="interactive-section">
+
+        <h2>Notification Counter</h2>
 
         <p>
-          Overview of your inventory management system.
+          Notifications: <strong>{notificationCount}</strong>
         </p>
-      </div>
 
+        <Button onClick={handleNotification}>
+          Add Notification
+        </Button>
 
-      {/* Statistics */}
+      </section>
 
-      <div className="card-grid">
+      {/* Button Event */}
+      <section className="interactive-section">
 
-        <div className="card stat-card">
-          <div className="stat-title">
-            Total Products
-          </div>
+        <h2>Message Toggle</h2>
 
-          <div className="stat-value">
-            120
-          </div>
-        </div>
+        <Button onClick={handleMessage}>
+          {showMessage ? "Hide Message" : "Show Message"}
+        </Button>
 
-
-        <div className="card stat-card">
-          <div className="stat-title">
-            Categories
-          </div>
-
-          <div className="stat-value">
-            15
-          </div>
-        </div>
-
-
-        <div className="card stat-card">
-          <div className="stat-title">
-            Suppliers
-          </div>
-
-          <div className="stat-value">
-            25
-          </div>
-        </div>
-
-
-        <div className="card stat-card">
-          <div className="stat-title">
-            Purchases
-          </div>
-
-          <div className="stat-value">
-            48
-          </div>
-        </div>
-
-      </div>
-
-
-      {/* Dashboard Content */}
-
-      <div className="dashboard-content">
-
-
-        {/* Recent Activity */}
-
-        <div className="card">
-
-          <h3>Recent Activity</h3>
-
-          <div className="activity-list">
-
-            <div className="activity-item">
-
-              <div className="activity-icon">
-                P
-              </div>
-
-              <div className="activity-text">
-                <h4>New Product Added</h4>
-
-                <p>
-                  A new product was added to the inventory.
-                </p>
-              </div>
-
-            </div>
-
-
-            <div className="activity-item">
-
-              <div className="activity-icon">
-                S
-              </div>
-
-              <div className="activity-text">
-                <h4>Supplier Updated</h4>
-
-                <p>
-                  Supplier information was successfully updated.
-                </p>
-              </div>
-
-            </div>
-
-
-            <div className="activity-item">
-
-              <div className="activity-icon">
-                P
-              </div>
-
-              <div className="activity-text">
-                <h4>Purchase Created</h4>
-
-                <p>
-                  A new purchase order has been created.
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-        {/* Quick Actions */}
-
-        <div className="card">
-
-          <h3>Quick Actions</h3>
-
-          <p style={{ marginTop: "8px", marginBottom: "20px" }}>
-            Quickly access important inventory functions.
+        {showMessage && (
+          <p className="success-message">
+            Welcome to your Inventory Dashboard!
           </p>
+        )}
 
+      </section>
 
-          <div className="quick-actions">
+      {/* Input Event */}
+      <section className="interactive-section">
 
-            <button className="btn btn-primary">
-              Add Product
-            </button>
+        <h2>Enter Your Name</h2>
 
-            <button className="btn btn-secondary">
-              Add Supplier
-            </button>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={userName}
+          onChange={(event) => setUserName(event.target.value)}
+        />
 
-            <button className="btn btn-secondary">
-              Create Purchase
-            </button>
+        {userName && (
+          <p>
+            Hello, <strong>{userName}</strong>!
+          </p>
+        )}
 
-          </div>
-
-        </div>
-
-      </div>
-
-
-      {/* Inventory Overview */}
-
-      <div className="content-section" style={{ marginTop: "25px" }}>
-
-        <div className="card">
-
-          <h3>Inventory Overview</h3>
-
-          <div
-            className="card-grid"
-            style={{ marginTop: "20px" }}
-          >
-
-            <div className="card">
-              <div className="stat-title">
-                In Stock
-              </div>
-
-              <div className="stat-value">
-                95
-              </div>
-            </div>
-
-
-            <div className="card">
-              <div className="stat-title">
-                Low Stock
-              </div>
-
-              <div className="stat-value">
-                15
-              </div>
-            </div>
-
-
-            <div className="card">
-              <div className="stat-title">
-                Out of Stock
-              </div>
-
-              <div className="stat-value">
-                10
-              </div>
-            </div>
-
-
-            <div className="card">
-              <div className="stat-title">
-                Pending
-              </div>
-
-              <div className="stat-value">
-                18
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
+      </section>
 
     </div>
   );
-};
+}
 
 export default Dashboard;
