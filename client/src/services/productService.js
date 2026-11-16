@@ -1,25 +1,7 @@
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api"
-});
-
-async function request(method, url, body, fallbackMessage) {
-  try {
-    const response = await api.request({ method, url, data: body });
-    if (!response.data?.success) {
-      throw new Error(response.data?.message || fallbackMessage);
-    }
-
-    return response.data.data;
-  } catch (error) {
-    const message = error.response?.data?.message || error.message || fallbackMessage;
-    throw new Error(message, { cause: error });
-  }
-}
+import { apiRequest } from "./apiClient";
 
 export async function getProducts() {
-  const products = await request(
+  const products = await apiRequest(
     "get",
     "/products",
     undefined,
@@ -32,11 +14,11 @@ export async function getProducts() {
 }
 
 export function createProduct(product) {
-  return request("post", "/products", product, "Unable to create product.");
+  return apiRequest("post", "/products", product, "Unable to create product.");
 }
 
 export function updateProduct(id, product) {
-  return request(
+  return apiRequest(
     "put",
     `/products/${encodeURIComponent(id)}`,
     product,
@@ -45,7 +27,7 @@ export function updateProduct(id, product) {
 }
 
 export function deleteProduct(id) {
-  return request(
+  return apiRequest(
     "delete",
     `/products/${encodeURIComponent(id)}`,
     undefined,

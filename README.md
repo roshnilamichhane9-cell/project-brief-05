@@ -70,3 +70,24 @@ frontend service at `client/src/services/productService.js`. It defaults to
 `http://localhost:5000/api`; set `VITE_API_URL` in the client environment to
 override the API base URL. Run `npm --prefix client run build` to validate the
 frontend.
+
+## Sprint 17: Category CRUD Module
+
+Categories are stored separately in the `categories` collection and managed
+through the `/categories` page. The Category schema requires a unique,
+trimmed name of 2-60 characters; description is optional and limited to 250
+characters; `isActive` defaults to `true`. Mongoose maintains timestamps.
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/categories` | Create a category |
+| `GET` | `/api/categories` | List categories |
+| `GET` | `/api/categories/:id` | Retrieve one category |
+| `PUT` | `/api/categories/:id` | Update a category |
+| `DELETE` | `/api/categories/:id` | Delete a category |
+
+Duplicate category names return `409`; invalid input or IDs return `400`,
+missing categories return `404`, and unexpected database failures return
+`500`. The Categories page provides loading and error feedback plus create,
+edit, and confirmed delete actions. Product and Category services share the
+Axios API client at `client/src/services/apiClient.js`.

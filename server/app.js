@@ -3,6 +3,7 @@ const cors = require("cors");
 
 const testRoutes = require("./routes/testRoutes");
 const productRoutes = require("./routes/productRoutes");
+const categoryRoutes = require("./routes/categoryRoutes");
 const requestLogger = require("./middleware/requestLogger");
 
 const app = express();
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 // Test API route
 app.use("/api/test", testRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/categories", categoryRoutes);
 
 app.use((error, req, res, next) => {
   if (

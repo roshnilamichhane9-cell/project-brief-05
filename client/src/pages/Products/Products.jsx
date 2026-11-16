@@ -5,7 +5,7 @@ import {
   getProducts,
   updateProduct
 } from "../../services/productService";
-import "./Products.css";
+import "../../assets/styles/crud.css";
 
 const EMPTY_FORM = {
   name: "",
@@ -150,7 +150,7 @@ function Products() {
   }
 
   return (
-    <div className="products-page">
+    <div className="crud-page">
       <div className="page-title">
         <h2>Products</h2>
         <p>Manage products and inventory stock.</p>
@@ -160,8 +160,8 @@ function Products() {
         <h3 id="product-form-title">
           {editingId ? "Edit Product" : "Add Product"}
         </h3>
-        <form className="product-form" onSubmit={handleSubmit}>
-          <div className="product-form-grid">
+        <form className="crud-form" onSubmit={handleSubmit}>
+          <div className="crud-form-grid">
             <label htmlFor="product-name">
               Product name
               <input
@@ -216,11 +216,11 @@ function Products() {
             </label>
           </div>
           {formError && (
-            <p className="product-message product-message-error" role="alert">
+            <p className="crud-message crud-message-error" role="alert">
               {formError}
             </p>
           )}
-          <div className="product-form-actions">
+          <div className="crud-form-actions">
             <button className="btn btn-primary" disabled={saving} type="submit">
               {saving
                 ? "Saving..."
@@ -243,12 +243,12 @@ function Products() {
       </section>
 
       {notice && (
-        <p className="product-message product-message-success" role="status">
+        <p className="crud-message crud-message-success" role="status">
           {notice}
         </p>
       )}
       {actionError && (
-        <p className="product-message product-message-error" role="alert">
+        <p className="crud-message crud-message-error" role="alert">
           {actionError}
         </p>
       )}
@@ -256,12 +256,12 @@ function Products() {
       <section className="section-card" aria-labelledby="product-list-title">
         <h3 id="product-list-title">Product List</h3>
         {loading ? (
-          <p aria-live="polite" className="products-state" role="status">
+          <p aria-live="polite" className="crud-state" role="status">
             Loading products...
           </p>
         ) : loadError ? (
-          <div className="products-state">
-            <p className="product-message product-message-error" role="alert">
+          <div className="crud-state">
+            <p className="crud-message crud-message-error" role="alert">
               Unable to load products: {loadError}
             </p>
             <button
@@ -273,10 +273,10 @@ function Products() {
             </button>
           </div>
         ) : products.length === 0 ? (
-          <p className="products-state">No products yet. Add one above.</p>
+          <p className="crud-state">No products yet. Add one above.</p>
         ) : (
           <div className="table-container">
-            <table className="data-table products-table">
+            <table className="data-table crud-table">
               <thead>
                 <tr>
                   <th scope="col">ID</th>
@@ -296,7 +296,7 @@ function Products() {
                     <td>{product.quantity}</td>
                     <td>{priceFormatter.format(product.price)}</td>
                     <td>
-                      <div className="product-row-actions">
+                      <div className="crud-row-actions">
                         <button
                           className="btn btn-secondary"
                           disabled={saving || deletingId === product._id}

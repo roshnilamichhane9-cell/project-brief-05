@@ -1,31 +1,31 @@
-.products-page {
+.crud-page {
   display: grid;
   gap: 20px;
 }
 
-.products-page .page-title {
+.crud-page .page-title {
   margin-bottom: 0;
 }
 
-.product-form {
+.crud-form {
   display: grid;
   gap: 18px;
 }
 
-.product-form-grid {
+.crud-form-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
 }
 
-.product-form label {
+.crud-form label {
   display: grid;
   gap: 7px;
   font-size: 13px;
   font-weight: 600;
 }
 
-.product-form input {
+.crud-form input {
   width: 100%;
   min-height: 42px;
   padding: 9px 11px;
@@ -35,21 +35,21 @@
   font-size: 14px;
 }
 
-.product-form input:focus {
+.crud-form input:focus {
   outline: 2px solid #555555;
   outline-offset: 1px;
 }
 
-.product-form-actions,
-.product-row-actions {
+.crud-form-actions,
+.crud-row-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
 }
 
-.product-form-actions .btn,
-.product-row-actions .btn {
+.crud-form-actions .btn,
+.crud-row-actions .btn {
   min-height: 36px;
   padding: 7px 12px;
 }
@@ -73,42 +73,42 @@
   opacity: 0.6;
 }
 
-.product-message {
+.crud-message {
   font-size: 14px;
 }
 
-.product-message-error {
+.crud-message-error {
   color: #b42318;
 }
 
-.product-message-success {
+.crud-message-success {
   color: #18794e;
 }
 
-.products-state {
+.crud-state {
   display: grid;
   justify-items: start;
   gap: 12px;
   color: #666666;
 }
 
-.products-table {
+.crud-table {
   min-width: 760px;
 }
 
-.products-table td:first-child {
+.crud-table td:first-child {
   color: #666666;
   font-variant-numeric: tabular-nums;
 }
 
 @media (max-width: 1000px) {
-  .product-form-grid {
+  .crud-form-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 600px) {
-  .product-form-grid {
+  .crud-form-grid {
     grid-template-columns: 1fr;
   }
 }
