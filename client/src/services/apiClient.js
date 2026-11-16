@@ -13,7 +13,11 @@ export async function apiRequest(method, url, body, fallbackMessage) {
 
     return response.data.data;
   } catch (error) {
-    const message = error.response?.data?.message || error.message || fallbackMessage;
+    const message =
+      error.response?.data?.message ||
+      (error.request && !error.response
+        ? "Unable to reach the server. Check that the backend is running."
+        : error.message || fallbackMessage);
     throw new Error(message, { cause: error });
   }
 }

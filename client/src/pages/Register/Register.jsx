@@ -15,6 +15,8 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -88,34 +90,62 @@ function Register() {
               value={form.email}
             />
           </label>
-          <label htmlFor="register-password">
-            Password
-            <input
-              autoComplete="new-password"
-              id="register-password"
-              maxLength="72"
-              minLength="8"
-              name="password"
-              onChange={handleChange}
-              required
-              type="password"
-              value={form.password}
-            />
-          </label>
-          <label htmlFor="register-confirm-password">
-            Confirm Password
-            <input
-              autoComplete="new-password"
-              id="register-confirm-password"
-              maxLength="72"
-              minLength="8"
-              name="confirmPassword"
-              onChange={handleChange}
-              required
-              type="password"
-              value={form.confirmPassword}
-            />
-          </label>
+          <div className="auth-field">
+            <label htmlFor="register-password">Password</label>
+            <div className="auth-password-control">
+              <input
+                autoComplete="new-password"
+                id="register-password"
+                maxLength="72"
+                minLength="8"
+                name="password"
+                onChange={handleChange}
+                required
+                type={showPassword ? "text" : "password"}
+                value={form.password}
+              />
+              <button
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                aria-pressed={showPassword}
+                className="auth-password-toggle"
+                onClick={() => setShowPassword((current) => !current)}
+                type="button"
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+          </div>
+          <div className="auth-field">
+            <label htmlFor="register-confirm-password">Confirm Password</label>
+            <div className="auth-password-control">
+              <input
+                autoComplete="new-password"
+                id="register-confirm-password"
+                maxLength="72"
+                minLength="8"
+                name="confirmPassword"
+                onChange={handleChange}
+                required
+                type={showConfirmPassword ? "text" : "password"}
+                value={form.confirmPassword}
+              />
+              <button
+                aria-label={
+                  showConfirmPassword
+                    ? "Hide confirm password"
+                    : "Show confirm password"
+                }
+                aria-pressed={showConfirmPassword}
+                className="auth-password-toggle"
+                onClick={() =>
+                  setShowConfirmPassword((current) => !current)
+                }
+                type="button"
+              >
+                {showConfirmPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+          </div>
 
           {error && (
             <p className="auth-message auth-error" role="alert">

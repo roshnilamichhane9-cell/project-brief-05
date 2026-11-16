@@ -110,5 +110,6 @@ unknown login credentials return the same `401` response. Successful responses
 contain only the user's public ID, name, email, and timestamps. The React
 pages at `/register` and `/login` use `client/src/services/authService.js` and
 provide validation, loading, and success/error feedback. This sprint verifies
-credentials only; JWTs, persistent login state, authorization, and protected
-routes are intentionally deferred.
+credentials only; a successful login routes to the home page and the password
+fields include visibility toggles. JWTs, persistent login state, authorization,
+and protected routes are intentionally deferred.
