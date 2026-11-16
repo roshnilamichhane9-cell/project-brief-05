@@ -24,4 +24,19 @@ app.get("/", (req, res) => {
 app.use("/api/test", testRoutes);
 app.use("/api/products", productRoutes);
 
+app.use((error, req, res, next) => {
+  if (
+    error instanceof SyntaxError &&
+    error.status === 400 &&
+    Object.prototype.hasOwnProperty.call(error, "body")
+  ) {
+    return res.status(400).json({
+      success: false,
+      message: "Request body must contain valid JSON."
+    });
+  }
+
+  return next(error);
+});
+
 module.exports = app;

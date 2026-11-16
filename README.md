@@ -45,3 +45,20 @@ provides the application interface for creating and validating those documents.
 | `createdAt`, `updatedAt` | Date | Auto | Maintained by Mongoose timestamps |
 
 Run `npm --prefix server test` to verify model defaults and validation.
+
+## Product CRUD API
+
+The database-backed product endpoints are:
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/products` | Create a product |
+| `GET` | `/api/products` | List products |
+| `GET` | `/api/products/:id` | Retrieve one product |
+| `PUT` | `/api/products/:id` | Update a product |
+| `DELETE` | `/api/products/:id` | Delete a product |
+
+Requests use JSON with `name`, `category`, `quantity`, and `price` fields.
+Responses return the record or records in `data`. Invalid input or IDs return
+`400`, missing products return `404`, and unexpected database failures return
+`500`. Run `npm --prefix server test` for model and controller tests.
