@@ -29,3 +29,19 @@ the initial `products` collection if it does not exist.
 The server logs whether the database connection succeeds. If MongoDB is
 unavailable, the existing API routes still start. Do not commit `server/.env`;
 it is excluded by `.gitignore`.
+
+## Sprint 14: Product Schema and Model
+
+The backend defines a Mongoose `Product` model backed by the `products`
+collection. A schema describes a document's fields and validation; the model
+provides the application interface for creating and validating those documents.
+
+| Field | Type | Required | Rules / default |
+| --- | --- | --- | --- |
+| `name` | String | Yes | Trimmed; 2-100 characters |
+| `category` | String | Yes | Trimmed; 2-100 characters |
+| `quantity` | Number | No | Defaults to `0`; non-negative whole number |
+| `price` | Number | Yes | Non-negative |
+| `createdAt`, `updatedAt` | Date | Auto | Maintained by Mongoose timestamps |
+
+Run `npm --prefix server test` to verify model defaults and validation.
