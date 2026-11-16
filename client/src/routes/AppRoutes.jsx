@@ -14,6 +14,7 @@ import Suppliers from "../pages/Suppliers/Suppliers";
 import Purchases from "../pages/Purchases/Purchases";
 import Sales from "../pages/Sales/Sales";
 import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 import NotFound from "../pages/NotFound/NotFound";
 
 function AppRoutes() {
@@ -60,6 +61,11 @@ function AppRoutes() {
         <Route
           path="/login"
           element={<Login />}
+        />
+
+        <Route
+          path="/register"
+          element={<Register />}
         />
 
         <Route

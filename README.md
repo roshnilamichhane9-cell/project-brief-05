@@ -91,3 +91,24 @@ missing categories return `404`, and unexpected database failures return
 `500`. The Categories page provides loading and error feedback plus create,
 edit, and confirmed delete actions. Product and Category services share the
 Axios API client at `client/src/services/apiClient.js`.
+
+## Sprint 18: Authentication Foundation
+
+The User model stores a trimmed name, normalized unique email, password hash,
+and Mongoose timestamps in the `users` collection. Registration hashes
+passwords with `bcryptjs`; the original password is never returned, and the
+password field is excluded from normal User queries. Passwords must contain
+at least 8 characters and fit within bcrypt's 72-byte input limit.
+
+| Method | Endpoint | Purpose |
+| --- | --- | --- |
+| `POST` | `/api/auth/register` | Create an account |
+| `POST` | `/api/auth/login` | Verify email and password |
+
+Duplicate emails return `409`, invalid input returns `400`, and incorrect or
+unknown login credentials return the same `401` response. Successful responses
+contain only the user's public ID, name, email, and timestamps. The React
+pages at `/register` and `/login` use `client/src/services/authService.js` and
+provide validation, loading, and success/error feedback. This sprint verifies
+credentials only; JWTs, persistent login state, authorization, and protected
+routes are intentionally deferred.
