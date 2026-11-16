@@ -62,3 +62,11 @@ Requests use JSON with `name`, `category`, `quantity`, and `price` fields.
 Responses return the record or records in `data`. Invalid input or IDs return
 `400`, missing products return `404`, and unexpected database failures return
 `500`. Run `npm --prefix server test` for model and controller tests.
+
+## Sprint 16: React Product Integration
+
+The Products page loads, creates, edits, and deletes products through the
+frontend service at `client/src/services/productService.js`. It defaults to
+`http://localhost:5000/api`; set `VITE_API_URL` in the client environment to
+override the API base URL. Run `npm --prefix client run build` to validate the
+frontend.

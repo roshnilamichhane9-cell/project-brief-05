@@ -101,7 +101,7 @@ test("Product controller performs CRUD operations through the model", async () =
     assert.deepEqual(updateArguments, [
       productId,
       { quantity: 8 },
-      { new: true, runValidators: true }
+      { returnDocument: "after", runValidators: true }
     ]);
 
     const deleteResponse = createResponse();
